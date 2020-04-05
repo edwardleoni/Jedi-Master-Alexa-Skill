@@ -1,0 +1,694 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "the empire",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "What can I do"
+                    ]
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": [
+                        "Take me home"
+                    ]
+                },
+                {
+                    "name": "FindPersonIntent",
+                    "slots": [
+                        {
+                            "name": "person",
+                            "type": "AMAZON.FictionalCharacter"
+                        }
+                    ],
+                    "samples": [
+                        "Find person named {person}",
+                        "Find person",
+                        "Tell me details about {person}",
+                        "Who is {person}"
+                    ]
+                },
+                {
+                    "name": "FindFilmIntent",
+                    "slots": [
+                        {
+                            "name": "film",
+                            "type": "AMAZON.Movie"
+                        }
+                    ],
+                    "samples": [
+                        "Find film",
+                        "Get details of {film}"
+                    ]
+                },
+                {
+                    "name": "FindSpeciesIntent",
+                    "slots": [
+                        {
+                            "name": "species",
+                            "type": "Species"
+                        }
+                    ],
+                    "samples": [
+                        "Find species"
+                    ]
+                },
+                {
+                    "name": "FindPlanetIntent",
+                    "slots": [
+                        {
+                            "name": "planet",
+                            "type": "Planet"
+                        }
+                    ],
+                    "samples": [
+                        "Find data for {planet} ",
+                        "Find planet {planet}",
+                        "Find planet data"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "Species",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Rodian"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Human"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Droid"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Wookiee"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Pau'an"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kaleesh"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Togruta"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Muun"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Skakoan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kaminoan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Besalisk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Clawdite"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mirialan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Geonosian"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Chagrian"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kel Dor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Quermian"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Iktotchi"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tholothian"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Zabrak"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Nautolan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Cerean"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Toong"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Xexto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Vulptereen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Aleena"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Twi'lek"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dug"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Toydarian"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Gungan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Neimodian"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Sullustan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Ewok",
+                                "synonyms": [
+                                    "Ewoks"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mon Calamari"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Trandoshan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Yoda's species"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Hutt"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Planet",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Jakku"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tatooine"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Umbara"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kalee"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Shili"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Muunilinst"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Skako"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Ojom"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Zolan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Concord Dawn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Serenno"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mirial"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Champala"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dorin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Quermia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Iktotch"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tholoth"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Iridonia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Glee Anselm"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Cerea"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Haruun Kal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tund"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Troiken"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Vulpter"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Aleen Minor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Ryloth"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dathomir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Malastare"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Toydaria"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Sullust"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Chandrila"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mon Cala"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Socorro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Trandosha"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Ord Mantell"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bestine IV"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dantooine"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Nal Hutta"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Rodia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Corellia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Eriadu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Stewjon"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Saleucami"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Cato Neimoidia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Felucia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mygeeto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Polis Massa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kashyyyk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mustafar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Utapau"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Geonosis"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kamino"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Coruscant"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Naboo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Endor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bespin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dagobah"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Hoth"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Yavin IV"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Alderaan"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "FindPersonIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "person",
+                            "type": "AMAZON.FictionalCharacter",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.229096512863.200752398336"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "FindFilmIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "film",
+                            "type": "AMAZON.Movie",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1277712858167.1345405437682"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "FindSpeciesIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "species",
+                            "type": "Species",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.70709373571.826703305260"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "FindPlanetIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "planet",
+                            "type": "Planet",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1288005110439.1432524809136"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.229096512863.200752398336",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Who are you looking to find?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Can you tell me the name of the person you are looking for?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1277712858167.1345405437682",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which film are you looking for?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.70709373571.826703305260",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What species are you referring to?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1288005110439.1432524809136",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "I didn't catch the planet name, what is it?"
+                    }
+                ]
+            }
+        ]
+    }
+}
