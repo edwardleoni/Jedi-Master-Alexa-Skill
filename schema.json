@@ -39,19 +39,6 @@
                     ]
                 },
                 {
-                    "name": "FindFilmIntent",
-                    "slots": [
-                        {
-                            "name": "film",
-                            "type": "AMAZON.Movie"
-                        }
-                    ],
-                    "samples": [
-                        "Find film",
-                        "Get details of {film}"
-                    ]
-                },
-                {
                     "name": "FindSpeciesIntent",
                     "slots": [
                         {
@@ -60,6 +47,7 @@
                         }
                     ],
                     "samples": [
+                        "Find details about the {species} species",
                         "Find {species} data",
                         "Find species {species}",
                         "Find species"
@@ -595,22 +583,6 @@
                             "elicitationRequired": true,
                             "prompts": {
                                 "elicitation": "Elicit.Slot.229096512863.200752398336"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "FindFilmIntent",
-                    "confirmationRequired": false,
-                    "prompts": {},
-                    "slots": [
-                        {
-                            "name": "film",
-                            "type": "AMAZON.Movie",
-                            "confirmationRequired": false,
-                            "elicitationRequired": true,
-                            "prompts": {
-                                "elicitation": "Elicit.Slot.1277712858167.1345405437682"
                             }
                         }
                     ]
