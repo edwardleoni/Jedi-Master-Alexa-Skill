@@ -60,6 +60,8 @@
                         }
                     ],
                     "samples": [
+                        "Find {species} data",
+                        "Find species {species}",
                         "Find species"
                     ]
                 },
