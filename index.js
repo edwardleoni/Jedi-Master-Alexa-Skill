@@ -1,6 +1,7 @@
 const Alexa = require('ask-sdk-core');
 const i18n = require('i18next'); // i18n library dependency, we use it below in a localisation interceptor
 const responses = require('./responses');
+const api = require('./swapi');
 
 
 const LaunchRequestHandler = {
@@ -26,6 +27,82 @@ const HelpIntentHandler = {
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
+            .getResponse();
+    }
+};
+const FindPersonIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'FindPersonIntent';
+    },
+    async handle(handlerInput) {
+        const { requestEnvelope } = handlerInput;
+
+        const person = Alexa.getSlotValue(requestEnvelope, 'person');
+        const personDetails = await api.getPerson(person);
+
+        const speakOutput = handlerInput.t('PERSON_MESSAGE', {
+            name: personDetails['name'],
+            height: personDetails['height'],
+            weight: personDetails['weight'],
+            gender: personDetails['gender'],
+            skinColour: personDetails['skin_colour'],
+            eyeColour: personDetails['eye_colour'],
+            hairColour: personDetails['hair_colour']
+        });
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .withShouldEndSession(true) // force the skill to close the session after confirming the birthday date
+            .getResponse();
+    }
+};
+const FindPlanetIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'FindPlanetIntent';
+    },
+    async handle(handlerInput) {
+        const { requestEnvelope } = handlerInput;
+
+        const planet = Alexa.getSlotValue(requestEnvelope, 'planet');
+        const planetDetails = await api.getPlanet(planet);
+
+        const speakOutput = handlerInput.t('PLANET_MESSAGE', {
+            name: planetDetails['name'],
+            population: planetDetails['population'],
+            orbitalPeriod: planetDetails['orbital_period'],
+            rotationPeriod: personDetails['rotation_period']
+        });
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .withShouldEndSession(true) // force the skill to close the session after confirming the birthday date
+            .getResponse();
+    }
+};
+const FindSpeciesIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'FindSpeciesIntent';
+    },
+    async handle(handlerInput) {
+        const { requestEnvelope } = handlerInput;
+
+        const species = Alexa.getSlotValue(requestEnvelope, 'species');
+        const speciesDetails = await api.getSpecies(species);
+
+        const speakOutput = handlerInput.t('SPECIES_MESSAGE', {
+            name: speciesDetails['name'],
+            height: speciesDetails['height'],
+            lifespan: speciesDetails['lifespan'],
+            classification: speciesDetails['classification'],
+            language: speciesDetails['language']
+        });
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .withShouldEndSession(true) // force the skill to close the session after confirming the birthday date
             .getResponse();
     }
 };
@@ -116,6 +193,9 @@ exports.handler = Alexa.SkillBuilders.custom()
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler,
+        FindSpeciesIntentHandler,
+        FindPlanetIntentHandler,
+        FindPersonIntentHandler,
         IntentReflectorHandler, // make sure IntentReflectorHandler is last so it doesn't override your custom intent handlers
     )
     .addErrorHandlers(

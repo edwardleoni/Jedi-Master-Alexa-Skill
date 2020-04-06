@@ -22,5 +22,33 @@ module.exports = {
             });
         });
     },
+    findPerson: function(path) {
+        return {
+            name: 'name',
+            height: 'height',
+            weight: 'weight',
+            gender: 'gender',
+            skinColour: 'skin_colour',
+            eyeColour: 'eye_colour',
+            hairColour: 'hair_colour'
+        }
+    },
+    findPlanet: function(path) {
+        return {
+            name: 'name',
+            population: 'population',
+            orbitalPeriod: 'orbital_period',
+            rotationPeriod: 'rotation_period'
+        }
+    },
+    findSpecies: function(path) {
+        return {
+            name: 'name',
+            height: 'height',
+            lifespan: 'lifespan',
+            classification: 'classification',
+            language: 'language'
+        }
+    },
 
 };
