@@ -7,7 +7,11 @@ module.exports = {
             REFLECTOR_MSG: `You just triggered {{intentName}}`,
             ERROR_MSG: `Understand you I could not. Please repeat. Or ask for help you could try.`,
             PERSON_MSG: `{{name}} is {{gender}}, {{height}} centimetres tall, and weighs {{weight}} kilos. Of {{skinColour}} skin, {{eyeColour}} eyes, and a {{hairColour}} hair`,
+            PERSON_NOT_FOUND_MSG: `In the entire galaxy, person whose name is {{name}} I couldn't find`,
+            PLANET_MSG: `{{name}} has a population of {{population}} inhabitants, has a rotation period of {{rotationPeriod}} and an orbital period of {{orbitalPeriod}}`,
+            PLANET_NOT_FOUND_MSG: `In the entire galaxy, planet whose name is {{name}} I couldn't find`,
             SPECIES_MSG: `The {{name}} have an average height of {{height}} metres, live for {{lifespan}} years in average, are of the {{classification}} family, and speak {{language}}`,
+            SPECIES_NOT_FOUND_MSG: `In the entire galaxy, species whose name is {{name}} I couldn't find`
         }
     }
 }

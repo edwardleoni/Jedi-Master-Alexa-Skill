@@ -1,7 +1,9 @@
 const Alexa = require('ask-sdk-core');
 const i18n = require('i18next'); // i18n library dependency, we use it below in a localisation interceptor
 const responses = require('./responses');
-const api = require('./swapi');
+const fetch = require('node-fetch');
+
+const SWAPI_URL = "https://swapi.co/api/";
 
 
 const LaunchRequestHandler = {
@@ -39,17 +41,24 @@ const FindPersonIntentHandler = {
         const { requestEnvelope } = handlerInput;
 
         const person = Alexa.getSlotValue(requestEnvelope, 'person');
-        const personDetails = await api.findPerson(person);
+        const request = await fetch(`${SWAPI_URL}people?format=json&search=${person}`);
+        const json = await request.json();
 
-        const speakOutput = handlerInput.t('PERSON_MSG', {
-            name: personDetails['name'],
-            height: personDetails['height'],
-            weight: personDetails['weight'],
-            gender: personDetails['gender'],
-            skinColour: personDetails['skin_colour'],
-            eyeColour: personDetails['eye_colour'],
-            hairColour: personDetails['hair_colour']
-        });
+        let speakOutput = handlerInput.t('PERSON_NOT_FOUND_MSG', {name: person}); // Not found until proven otherwise
+
+        if (json['results'].length > 0) {
+            const personDetails = json['results'][0];
+
+            speakOutput = handlerInput.t('PERSON_MSG', {
+                name: personDetails['name'],
+                height: personDetails['height'],
+                weight: personDetails['mass'],
+                gender: personDetails['gender'],
+                skinColour: personDetails['skin_color'],
+                eyeColour: personDetails['eye_color'],
+                hairColour: personDetails['hair_color']
+            });
+        }
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
