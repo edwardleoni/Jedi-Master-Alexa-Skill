@@ -112,9 +112,9 @@ const FindSpeciesIntentHandler = {
         let speakOutput = handlerInput.t('SPECIES_NOT_FOUND_MSG', {name: species}); // Not found until proven otherwise
 
         if (json['results'].length > 0) {
-            speciesDetails = json['results'][0];
+            const speciesDetails = json['results'][0];
 
-            const speakOutput = handlerInput.t('SPECIES_MSG', {
+            speakOutput = handlerInput.t('SPECIES_MSG', {
                 name: speciesDetails['name'],
                 height: speciesDetails['height'],
                 lifespan: speciesDetails['lifespan'],
