@@ -116,8 +116,8 @@ const FindSpeciesIntentHandler = {
 
             speakOutput = handlerInput.t('SPECIES_MSG', {
                 name: speciesDetails['name'],
-                height: speciesDetails['height'],
-                lifespan: speciesDetails['lifespan'],
+                height: speciesDetails['average_height'],
+                lifespan: speciesDetails['average_lifespan'],
                 classification: speciesDetails['classification'],
                 language: speciesDetails['language']
             });
