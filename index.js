@@ -83,7 +83,7 @@ const FindPlanetIntentHandler = {
         if (json['results'].length > 0) {
             const planetDetails = json['results'][0];
 
-            const speakOutput = handlerInput.t('PLANET_MSG', {
+            speakOutput = handlerInput.t('PLANET_MSG', {
                 name: planetDetails['name'],
                 population: planetDetails['population'],
                 orbitalPeriod: planetDetails['orbital_period'],
@@ -112,7 +112,7 @@ const FindSpeciesIntentHandler = {
         let speakOutput = handlerInput.t('SPECIES_NOT_FOUND_MSG', {name: species}); // Not found until proven otherwise
 
         if (json['results'].length > 0) {
-            const speciesDetails = json['results'][0];
+            speciesDetails = json['results'][0];
 
             const speakOutput = handlerInput.t('SPECIES_MSG', {
                 name: speciesDetails['name'],
