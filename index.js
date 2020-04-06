@@ -75,14 +75,21 @@ const FindPlanetIntentHandler = {
         const { requestEnvelope } = handlerInput;
 
         const planet = Alexa.getSlotValue(requestEnvelope, 'planet');
-        const planetDetails = await api.findPlanet(planet);
+        const request = await fetch(`${SWAPI_URL}planets?format=json&search=${planet}`);
+        const json = await request.json();
 
-        const speakOutput = handlerInput.t('PLANET_MSG', {
-            name: planetDetails['name'],
-            population: planetDetails['population'],
-            orbitalPeriod: planetDetails['orbital_period'],
-            rotationPeriod: planetDetails['rotation_period']
-        });
+        let speakOutput = handlerInput.t('PLANET_NOT_FOUND_MSG', {name: planet}); // Not found until proven otherwise
+
+        if (json['results'].length > 0) {
+            const planetDetails = json['results'][0];
+
+            const speakOutput = handlerInput.t('PLANET_MSG', {
+                name: planetDetails['name'],
+                population: planetDetails['population'],
+                orbitalPeriod: planetDetails['orbital_period'],
+                rotationPeriod: planetDetails['rotation_period']
+            });
+        }
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -99,15 +106,22 @@ const FindSpeciesIntentHandler = {
         const { requestEnvelope } = handlerInput;
 
         const species = Alexa.getSlotValue(requestEnvelope, 'species');
-        const speciesDetails = await api.findSpecies(species);
+        const request = await fetch(`${SWAPI_URL}species?format=json&search=${species}`);
+        const json = await request.json();
 
-        const speakOutput = handlerInput.t('SPECIES_MSG', {
-            name: speciesDetails['name'],
-            height: speciesDetails['height'],
-            lifespan: speciesDetails['lifespan'],
-            classification: speciesDetails['classification'],
-            language: speciesDetails['language']
-        });
+        let speakOutput = handlerInput.t('SPECIES_NOT_FOUND_MSG', {name: species}); // Not found until proven otherwise
+
+        if (json['results'].length > 0) {
+            const speciesDetails = json['results'][0];
+
+            const speakOutput = handlerInput.t('SPECIES_MSG', {
+                name: speciesDetails['name'],
+                height: speciesDetails['height'],
+                lifespan: speciesDetails['lifespan'],
+                classification: speciesDetails['classification'],
+                language: speciesDetails['language']
+            });
+        }
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
