@@ -566,6 +566,20 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name": "AMAZON.FictionalCharacter",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Jabba",
+                                "synonyms": [
+                                    "jabba the hutt",
+                                    "Jaba the hut"
+                                ]
+                            }
+                        }
+                    ]
                 }
             ]
         },
