@@ -39,7 +39,7 @@ const FindPersonIntentHandler = {
         const { requestEnvelope } = handlerInput;
 
         const person = Alexa.getSlotValue(requestEnvelope, 'person');
-        const personDetails = await api.getPerson(person);
+        const personDetails = await api.findPerson(person);
 
         const speakOutput = handlerInput.t('PERSON_MESSAGE', {
             name: personDetails['name'],
@@ -66,7 +66,7 @@ const FindPlanetIntentHandler = {
         const { requestEnvelope } = handlerInput;
 
         const planet = Alexa.getSlotValue(requestEnvelope, 'planet');
-        const planetDetails = await api.getPlanet(planet);
+        const planetDetails = await api.findPlanet(planet);
 
         const speakOutput = handlerInput.t('PLANET_MESSAGE', {
             name: planetDetails['name'],
@@ -90,7 +90,7 @@ const FindSpeciesIntentHandler = {
         const { requestEnvelope } = handlerInput;
 
         const species = Alexa.getSlotValue(requestEnvelope, 'species');
-        const speciesDetails = await api.getSpecies(species);
+        const speciesDetails = await api.findSpecies(species);
 
         const speakOutput = handlerInput.t('SPECIES_MESSAGE', {
             name: speciesDetails['name'],
