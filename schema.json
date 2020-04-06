@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "the empire",
+            "invocationName": "Jedi master",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",
