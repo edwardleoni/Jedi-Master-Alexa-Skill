@@ -72,7 +72,7 @@ const FindPlanetIntentHandler = {
             name: planetDetails['name'],
             population: planetDetails['population'],
             orbitalPeriod: planetDetails['orbital_period'],
-            rotationPeriod: personDetails['rotation_period']
+            rotationPeriod: planetDetails['rotation_period']
         });
 
         return handlerInput.responseBuilder
