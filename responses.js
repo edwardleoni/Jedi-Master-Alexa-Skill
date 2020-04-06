@@ -10,7 +10,7 @@ module.exports = {
             PERSON_NOT_FOUND_MSG: `In the entire galaxy, person whose name is {{name}} I couldn't find`,
             PLANET_MSG: `{{name}} has a population of {{population}} inhabitants, has a rotation period of {{rotationPeriod}} days and an orbital period of {{orbitalPeriod}} dats`,
             PLANET_NOT_FOUND_MSG: `In the entire galaxy, planet whose name is {{name}} I couldn't find`,
-            SPECIES_MSG: `The {{name}} have an average height of {{height}} metres, live for {{lifespan}} years in average, are of the {{classification}} family, and speak {{language}}`,
+            SPECIES_MSG: `The {{name}} have an average height of {{height}} centimetres, live for {{lifespan}} years in average, are of the {{classification}} family, and speak {{language}}`,
             SPECIES_NOT_FOUND_MSG: `In the entire galaxy, species whose name is {{name}} I couldn't find`
         }
     }
