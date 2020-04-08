@@ -3,7 +3,7 @@ const i18n = require('i18next'); // i18n library dependency, we use it below in 
 const responses = require('./responses');
 const fetch = require('node-fetch');
 
-const SWAPI_URL = "https://swapi.co/api/";
+const SWAPI_URL = "https://nl4coh093d.execute-api.us-east-1.amazonaws.com/dev/api/";
 
 
 const LaunchRequestHandler = {
@@ -41,13 +41,14 @@ const FindPersonIntentHandler = {
         const { requestEnvelope } = handlerInput;
 
         const person = Alexa.getSlotValue(requestEnvelope, 'person');
-        const request = await fetch(`${SWAPI_URL}people?format=json&search=${person}`);
+        const request = await fetch(`${SWAPI_URL}people?q=${person}`);
+        console.log(`${SWAPI_URL}people?q=${person}`);
         const json = await request.json();
 
         let speakOutput = handlerInput.t('PERSON_NOT_FOUND_MSG', {name: person}); // Not found until proven otherwise
 
-        if (json['results'].length > 0) {
-            const personDetails = json['results'][0];
+        if (json.length > 0) {
+            const personDetails = json[0];
 
             speakOutput = handlerInput.t('PERSON_MSG', {
                 name: personDetails['name'],
@@ -75,13 +76,13 @@ const FindPlanetIntentHandler = {
         const { requestEnvelope } = handlerInput;
 
         const planet = Alexa.getSlotValue(requestEnvelope, 'planet');
-        const request = await fetch(`${SWAPI_URL}planets?format=json&search=${planet}`);
+        const request = await fetch(`${SWAPI_URL}planets?&q=${planet}`);
         const json = await request.json();
 
         let speakOutput = handlerInput.t('PLANET_NOT_FOUND_MSG', {name: planet}); // Not found until proven otherwise
 
-        if (json['results'].length > 0) {
-            const planetDetails = json['results'][0];
+        if (json.length > 0) {
+            const planetDetails = json[0];
 
             speakOutput = handlerInput.t('PLANET_MSG', {
                 name: planetDetails['name'],
@@ -106,13 +107,13 @@ const FindSpeciesIntentHandler = {
         const { requestEnvelope } = handlerInput;
 
         const species = Alexa.getSlotValue(requestEnvelope, 'species');
-        const request = await fetch(`${SWAPI_URL}species?format=json&search=${species}`);
+        const request = await fetch(`${SWAPI_URL}species?q=${species}`);
         const json = await request.json();
 
         let speakOutput = handlerInput.t('SPECIES_NOT_FOUND_MSG', {name: species}); // Not found until proven otherwise
 
-        if (json['results'].length > 0) {
-            const speciesDetails = json['results'][0];
+        if (json.length > 0) {
+            const speciesDetails = json[0];
 
             speakOutput = handlerInput.t('SPECIES_MSG', {
                 name: speciesDetails['name'],
