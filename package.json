@@ -13,6 +13,6 @@
     "ask-sdk-model": "^1.18.0",
     "aws-sdk": "^2.326.0",
     "i18next": "^15.0.5",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   }
 }
